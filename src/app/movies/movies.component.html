@@ -1,0 +1,15 @@
+<ul class="movies">
+  <li *ngFor="let movie of movies" (click)="selectMovie(movie)">
+    {{ movie.title }} {{ movie.release_date }}
+  </li>
+</ul>
+<div class="pager">
+  <span *ngIf="currentPage !== 1" (click)="previousPage()">&#8592;</span>
+  <span *ngIf="currentPage !== 1000" (click)="nextPage()">&#8594;</span>
+</div>
+<hr>
+
+<div class="movie-detail" *ngIf="selectedMovie">
+  <app-movie-detail [movie]="selectedMovie">
+  </app-movie-detail>
+</div>
